@@ -10,23 +10,20 @@
 <body>
     <div id="formWrapper">
         <form class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label" for="inputEmail">Email</label>
-                <div class="controls">
-                    <input type="text" id="inputEmail" placeholder="Email">
-                </div>
+            <div class="field">
+                <label for="n">Name</label>
+                <input type="text" id="n" />
+            </div>
+            <div class="field">
+                <label for="ln">Family</label>
+                <input type="text" id="ln" />
+            </div>
+            <div class="field">
+                <label for="a">City</label>
+                <input type="text" id="a" />
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputPassword">Password</label>
                 <div class="controls">
-                    <input type="password" id="inputPassword" placeholder="Password">
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <label class="checkbox">
-                        <input type="checkbox"> Remember me
-                    </label>
                     <button type="submit" class="btn">Sign in</button>
                 </div>
             </div>
