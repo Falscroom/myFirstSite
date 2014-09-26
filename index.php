@@ -1,3 +1,5 @@
+<!--А НУ НЕ СМЕТЬ КОПИПАСТИТЬ МОЮ ДОМАШКУ!!!!-->
+<? ob_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,25 +8,27 @@
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="css/style.css" rel="stylesheet" media="screen">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-    <div id="formWrapper">
-        <form class="form-horizontal">
+    <?php include 'registrationScript.php';  ob_end_flush(); ?>
+    <div id="formWrapper" >
+        <form class="form-horizontal" method="post">
             <div class="field">
-                <label for="n">Name</label>
-                <input type="text" id="n" />
+                <label for="n">Логин</label>
+                <input type="text" id="n" name="login" />
             </div>
             <div class="field">
-                <label for="ln">Family</label>
-                <input type="text" id="ln" />
+                <label for="ln">Password</label>
+                <input type="password" id="ln" name="password" />
             </div>
             <div class="field">
-                <label for="a">City</label>
-                <input type="text" id="a" />
+                <label for="a">Contacts</label>
+                <input type="text" id="a" name="contacts" />
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <button type="submit" class="btn">Sign in</button>
+                    <button type="submit" name="submit" class="btn">Register</button>
                 </div>
             </div>
         </form>
