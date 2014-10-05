@@ -32,7 +32,6 @@ class baseConnect {
             $result = $this->link->prepare($query);
             $result->execute();
             $arr =  $result->fetch();
-            $arr = $arr[0];
         }
         catch(PDOException $e) {
             $this->success = false;

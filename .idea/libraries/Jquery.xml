@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Jquery" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="jQuery" />
+      <option name="frameworkVersion" value="1.1." />
+    </properties>
+    <CLASSES />
+    <DOCUMENTATION>
+      <root url="http://yastatic.net/jquery-ui/1.11.1/jquery-ui.min.js" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>
