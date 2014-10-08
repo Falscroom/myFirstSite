@@ -1,10 +1,12 @@
 <?php
 
 include 'baseConnect.php';
-include 'dataForDB.php';
-$connect = new baseConnect($host,$login,$pass,$baseName);
+$connect = baseConnect::getConnect();
 
-$data = $connect->execQueryGetRow("SELECT id, password FROM user WHERE login='".mysql_real_escape_string($_POST['l'])."' LIMIT 1");
+$connect->prepareQuery("SELECT id, password FROM user WHERE login=:login LIMIT 1");
+$connect->query->bindParam(':login',$_POST['l']);
+$data = $connect->executeQuery('row');
+
 if($data["password"] === md5(md5($_POST['p'])))
 {
     echo false;

@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
-$login = 'falscroom';
-$pass = '';
-$baseName = 'db';
+define("HOST",     "localhost");
+define("LOGIN",     "falscroom");
+define("PASS",     "");
+define("BASENAME",     "db");

@@ -1,6 +1,5 @@
 <?
 include 'baseConnect.php';
-include 'dataForDB.php';
 
 // Страница авторизации
 # Функция для генерации случайной строки
