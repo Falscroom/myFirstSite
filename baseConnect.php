@@ -3,7 +3,7 @@ require_once 'dataForDB.php';
 
 class baseConnect {
     public $query;
-    private static $_instance = null;
+    private static $connect = null;
     private  $link;
     public $success = true;
     public $errorCode;
@@ -19,10 +19,10 @@ class baseConnect {
         }
     }
     static function getConnect() {
-        if(is_null(self::$_instance)) {
-            self::$_instance = new self(HOST,LOGIN,PASS,BASENAME);
+        if(is_null(self::$connect)) {
+            self::$connect = new self(HOST,LOGIN,PASS,BASENAME);
         }
-        return self::$_instance;
+        return self::$connect;
     }
     function prepareQuery($query) {
         $this->query = $this->link->prepare($query);

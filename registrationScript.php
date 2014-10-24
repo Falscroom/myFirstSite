@@ -56,19 +56,17 @@ class registration_controller {
             return false;
         }
         return true;
-    }
+     }
      private  function checkUserInDB($login) {
-        #var_dump(self::$connect);
         $this->connect->prepareQuery("SELECT COUNT(id) FROM user WHERE login=:login");
         $this->connect->query->bindParam(':login',$login);
-        $result =  $this->connect->executeQuery('row');
-        if($result[0] > 0)
+        $data =  $this->connect->executeQuery('row');
+        $result = false;
+         if($data[0] > 0)
         {
-            return true;
+            $result =  true;
         }
-        else {
-            return false;
-        }
+        return $result;
     }
     static public  function getController() {
         if(is_null(self::$thisController)) {
@@ -77,7 +75,7 @@ class registration_controller {
         return self::$thisController;
     }
     public function addUser($login,$password,$contacts) {
-        if(!self::checkUserInDB($login) && self::checkWithRegularExp($login)) {
+        if(self::checkUserInDB($login) && self::checkWithRegularExp($login)) {
             $password = md5(md5(trim($password)));
             $this->connect->prepareQuery("INSERT INTO user SET login='".$login."', password='".$password."',contacts=:contacts");
             $this->connect->query->bindParam(':contacts',$contacts);
