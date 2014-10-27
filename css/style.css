@@ -1,6 +1,12 @@
+@import url('reset.css');
+
+/*
 body {margin: 0;}
 .field {clear:both; text-align:right; line-height:25px; margin-bottom: 10px;}
-label {float:left; margin-right: 10px; padding-right:10px;}  /*thanks http://habrahabr.ru/post/64530/*/
+label {float:left; margin-right: 10px; padding-right:10px;}  */
+/*thanks http://habrahabr.ru/post/64530*/
+/*//*
+
 #registrationForm,#loginForm {margin: 80px 0 0 100px; float: left;}
 .btn {margin-top: 20px;}
 #formWrapper {
@@ -8,4 +14,27 @@ label {float:left; margin-right: 10px; padding-right:10px;}  /*thanks http://hab
     max-width: 500px;
     min-height: 300px;
     margin: 80px auto 0 auto;
+}
+
+*/
+body{
+    /*    background-color: #000000;*/
+    background-image: url(../images/Default.jpg);
+    background-size: cover;
+    color:#fff;
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+
+}
+a{
+    color:#fff;
+    text-decoration:none;
+}
+.ac_overlay{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:transparent url(../images/pattern.png) repeat top left;
+    z-index: -1;
 }
