@@ -27,14 +27,6 @@ $(document).ready(function()
                     }
                 ).promise();
             },
-            menuShow : function() {
-                return $.Deferred(
-                    function(dfd) {
-                        setTimeout(function() {
-                            return ac_content.stop().animate({width:width + 'px'},600,dfd.resolve);
-                        },2000) }
-                ).promise();
-            },
             hideList : function(element) {
                 return $.Deferred(
                     function(dfd) {
@@ -59,14 +51,7 @@ $(document).ready(function()
     ////////////////////////////////////////////////////////////////////
     var menu = Menu_Controller();
     var opened = null;
-    var width = $(window).width();
     ///////////////////////////////////////////////////////////////////
-    menu.menuShow().done(function() {
-        var items = $('.menu_items');
-        items.each(function(index,element) {
-            $(element).animate({bottom:0 + 'px'});
-        });
-    });
     function showElement() {
         var current = this;
         menu.itemsHide($('.menu_items')).done(function() {

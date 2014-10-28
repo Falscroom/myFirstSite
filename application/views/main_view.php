@@ -4,5 +4,9 @@
 </div>-->
 
 <div id="ac_header">
+    <?php if ($data['authorization']): ?>
+        <a href=""> <?= $_COOKIE['login'] ?> </a>
+    <? else: ?>
     <a href="login"> Войти </a>
+    <? endif; ?>
 </div>

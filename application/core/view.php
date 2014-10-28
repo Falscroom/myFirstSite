@@ -3,7 +3,7 @@ class View
 {
     //public $template_view; // здесь можно указать общий вид по умолчанию.
 
-    function generate($content_view,$header_view, $template_view, $data = null,$menu_view = 'menu_view.php')
+    function generate($content_view,$header_view, $template_view, $data = null, $menu_view = 'menu_view.php') // Data['menu'] это имя меню Data['style'] это имя таблицы для
     {
         /*
         if(is_array($data)) {

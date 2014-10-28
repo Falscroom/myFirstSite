@@ -14,7 +14,7 @@ class Model_Login extends Model
         return $code;
     }
     public function checkPass($pass,$login) {
-        $this->prepareQuery('SELECT id, password FROM user WHERE login=:login LIMIT 1');
+        $this->prepareQuery('SELECT id, password ,login FROM user WHERE login=:login LIMIT 1'); // Warning!!!
         $this->query->bindParam(':login',$login);
         $this->thisUser = $this->executeQuery('row');
         if($this->thisUser["password"] === md5(md5($pass))) {
@@ -25,11 +25,13 @@ class Model_Login extends Model
     private function createCookie() {
         setcookie("id", $this->thisUser['id'], time()+TIME);
         setcookie("hash", $this->hash, time()+TIME);
+        setcookie("login", $this->thisUser['login'], time()+TIME);
     }
     private function deleteCookie() {
         if(isset($_COOKIE['id']) or isset($_COOKIE['hash'])) {
             setcookie("id", "", time() - TIME*12);
             setcookie("hash", "", time() - TIME*12);
+            setcookie("login", "", time() - TIME*12);
         }
     }
     function approveUser($login,$pass,$createIP) {

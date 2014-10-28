@@ -7,12 +7,8 @@ class Controller_Main extends Controller
     }
     function action_index()
     {
-        if($this->model->mainApproveLogin()) {
-            $this->view->generate('main_view.php','main_header.php', 'template_view.php');
-        }
-        else {
-            header("Location:login");
-        }
+
+        $this->view->generate('main_view.php','main_header.php', 'template_view.php',array('authorization' => $this->model->mainApproveLogin()));
 
     }
 }

@@ -1,0 +1,35 @@
+.field {
+    clear:both;
+    text-align:right;
+    line-height:25px;
+    margin-bottom: 10px;
+}
+label {
+    float:left;
+    margin-right: 10px;
+    padding-right:10px;
+}
+/*thanks http://habrahabr.ru/post/64530*/
+#ac_register_form {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    padding: 30px 50px;
+    background-color: rgba(0,0,0,0.8);
+    top: 35%;
+}
+#ac_register_form {
+    color: white;
+}
+#id_attach {
+    width: 20px;
+}
+.btn {
+    margin-top: 20px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+#text {
+    position: relative;
+    float: right;
+}

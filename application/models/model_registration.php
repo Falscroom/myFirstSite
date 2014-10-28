@@ -23,7 +23,7 @@ class Model_Registration extends Model
         return true;
     }
 
-    public function addUser($login,$password,$contacts) {
+    public function addUser($login,$password,$contacts,$password2) {
         if($this->checkUserInDB($login) && $this->checkWithRegularExp($login)) {
             $password = md5(md5(trim($password)));
             $this->prepareQuery("INSERT INTO user SET login='".$login."', password='".$password."',contacts=:contacts");
