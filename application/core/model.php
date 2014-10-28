@@ -20,20 +20,18 @@ class Model
     function prepareQuery($query) { // Подгатавливает запрос
         $this->query = $this->link->prepare($query);
     }
-    function executeQuery($type) { // выполняет запрос и возвращает требуемый результат (ничего, всё, строку)
+    function executeQuery_Simple() { // выполняет запрос и возвращает требуемый результат (ничего, всё, строку)
         $this->query->execute();
-        switch($type) {
-            case 'simple' :
-                break;
-            case 'all' :
-                $arr =  $this->query->fetchAll();
-                return $arr;
-                break;
-            case 'row' :
-                $arr =  $this->query->fetch();
-                return $arr;
-                break;
-        }
-        return null;
     }
+    function executeQuery_Row() {
+        $this->executeQuery_Simple();
+        $arr =  $this->query->fetch();
+        return $arr;
+    }
+    function executeQuery_All() {
+        $this->executeQuery_Simple();
+        $arr =  $this->query->fetchAll();
+        return $arr;
+    }
+
 }

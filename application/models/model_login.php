@@ -3,6 +3,7 @@ class Model_Login extends Model
 {
     private $thisUser;
     private $hash;
+    public  $errors = array();
 
     private function generateCode($length=6) {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
@@ -16,7 +17,7 @@ class Model_Login extends Model
     public function checkPass($pass,$login) {
         $this->prepareQuery('SELECT id, password ,login FROM user WHERE login=:login LIMIT 1'); // Warning!!!
         $this->query->bindParam(':login',$login);
-        $this->thisUser = $this->executeQuery('row');
+        $this->thisUser = $this->executeQuery_Row();
         if($this->thisUser["password"] === md5(md5($pass))) {
             return true;
         }
@@ -47,12 +48,12 @@ class Model_Login extends Model
             $this->query->bindParam(':hash',$this->hash);
             $this->query->bindParam(':ip',$ip);
             $this->query->bindParam(':id',$this->thisUser['id']);
-            $this->executeQuery('simple');
+            $this->executeQuery_Simple();
             $this->createCookie();
             return true;
         }
         else {
-            # echo "Пароль не верен";
+            $this->errors['password_login'] = 'has-error'; // class из bootstrap
             $this->deleteCookie();
             return false;
         }
