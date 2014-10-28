@@ -28,13 +28,6 @@ class Model_Login extends Model
         setcookie("hash", $this->hash, time()+TIME);
         setcookie("login", $this->thisUser['login'], time()+TIME);
     }
-    private function deleteCookie() {
-        if(isset($_COOKIE['id']) or isset($_COOKIE['hash'])) {
-            setcookie("id", "", time() - TIME*12);
-            setcookie("hash", "", time() - TIME*12);
-            setcookie("login", "", time() - TIME*12);
-        }
-    }
     function approveUser($login,$pass,$createIP) {
         if($this->checkPass($pass,$login)) { #ПРОВЕРЯЕМ ПРАВИЛЬНОСТЬ ПАРОЛЯ
             $this->hash = md5($this->generateCode(10));
@@ -54,7 +47,7 @@ class Model_Login extends Model
         }
         else {
             $this->errors['password_login'] = 'has-error'; // class из bootstrap
-            $this->deleteCookie();
+            Authorization::logOut();
             return false;
         }
     }

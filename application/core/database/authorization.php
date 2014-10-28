@@ -1,7 +1,7 @@
 <?php
 class Authorization extends Model {
-    private function deleteCookie() {
-        if(isset($_COOKIE['id']) or isset($_COOKIE['hash'])) {
+    static function logOut() {
+        if(isset($_COOKIE['hash'])) {
             setcookie("id", "", time() - TIME*12);
             setcookie("hash", "", time() - TIME*12);
             setcookie("login", "", time() - TIME*12);
@@ -17,7 +17,7 @@ class Authorization extends Model {
             if(($userData['hash'] !== $_COOKIE['hash']) or ($userData['id'] !== $_COOKIE['id'])
                 or ((long2ip($userData['ip']) !== $_SERVER['REMOTE_ADDR'])  and ($userData['ip'] !== "0")))
             {   #в этом случае сносим существующие куки
-                $this->deleteCookie();
+                Authorization::logOut();
                 return false;
             }
             else
