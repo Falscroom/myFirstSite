@@ -40,7 +40,7 @@
 
         <div class="form-group ">
             <label class="control-label" for="password2">Повторите пароль </label>
-            <input class="form-control" type="text" id="password2" name="password2" />
+            <input class="form-control" type="password" id="password2" name="password2" />
         </div>
 
         <div class="form-group ">

@@ -14,7 +14,7 @@ class Model_Registration extends Model
         {
 
             $this->errors['login_error'] = 'has-error';
-            $this->errors['login_text'] = 'Пароль должен быть не короче 3, но не больше 30 символов';
+            $this->errors['login_text'] = 'Логин должен быть не короче 3, но не больше 30 символов';
 
             return false;
         }
