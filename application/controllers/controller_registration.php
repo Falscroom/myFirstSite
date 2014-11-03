@@ -12,6 +12,14 @@ class Controller_Registration extends Controller
                 header("Location:login");
             }
         }
-        $this->view->generate('registration_view.php','registration_header.php', 'template_view.php',$this->model->errors);
+
+        $files['header']['css'] = array();
+        $files['header']['js'] = array();
+
+        array_push($files['header']['css'],'menu_without_animation.css');
+        array_push($files['header']['css'],'register_style.css');
+        array_push($files['header']['js'],'menu_without_animation.js');
+
+        $this->view->generate('registration_view.php', 'template_view.php',$files,$this->model->errors);
     }
 }

@@ -8,7 +8,14 @@ class Controller_Main extends Controller
     function action_index()
     {
 
-        $this->view->generate('main_view.php','main_header.php', 'template_view.php',array('authorization' => $this->model->mainApproveLogin()));
+        $files['header']['css'] = array();
+        $files['header']['js'] = array();
+
+        array_push($files['header']['css'],'main_menu_style.css');
+        array_push($files['header']['css'],'main_style.css');
+        array_push($files['header']['js'],'main_menu.js');
+
+        $this->view->generate('main_view.php', 'template_view.php',$files,array('authorization' => $this->model->mainApproveLogin()));
 
     }
 }

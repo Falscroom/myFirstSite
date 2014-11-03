@@ -15,6 +15,14 @@ class Controller_Login extends Controller
             }
 
         }
-        $this->view->generate('login_view.php','login_header.php', 'template_view.php',$this->model->errors);
+
+        $files['header']['css'] = array();
+        $files['header']['js'] = array();
+
+        array_push($files['header']['css'],'menu_without_animation.css');
+        array_push($files['header']['css'],'login_style.css');
+        array_push($files['header']['js'],'menu_without_animation.js');
+
+        $this->view->generate('login_view.php', 'template_view.php',$files,$this->model->errors);
     }
 }
