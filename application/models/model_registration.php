@@ -21,7 +21,7 @@ class Model_Registration extends Model
         return true;
     }
     private function checkUserInDB($login) {
-        $this->prepareQuery("SELECT COUNT(id) FROM user WHERE login=:login");
+        $this->prepareQuery("SELECT COUNT(user_id) FROM user WHERE login=:login");
         $this->query->bindParam(':login',$login);
         $data =  $this->executeQuery_Row();
         if($data[0] > 0)
