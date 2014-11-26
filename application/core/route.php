@@ -59,7 +59,12 @@ class Route
         if(method_exists($controller, $action))
         {
             // вызываем действие контроллера
-            $controller->$action();
+            if($action_name == "action_page") {
+                $controller->$action(array_slice($routes,4));
+            }
+            else {
+                $controller->$action();
+            }
         }
         else
         {

@@ -1,0 +1,128 @@
+img {
+    height: 80%;
+    width: 60%;
+}
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0; /*FIXME*/
+    padding-top: 105px;
+    padding-bottom: 45px;
+    z-index: 0;
+}
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+    font-weight:bold;
+}
+/* Grid style; make sure parent containers have full height */
+.gt-grid {
+    padding-top: 20px;
+    padding-left: 1%;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gt-grid > div {
+    margin-right: 1%;
+    margin-bottom: 20px;
+
+    width: 19%;
+    height: 20%;
+    float: left;
+    position: relative;
+    opacity: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+}
+
+.gt-grid > div:hover:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.03);
+}
+.gt-grid > div {
+    color: #000000;
+    overflow: hidden;
+    padding: 1px;
+    background-color: rgba(0,0,0,0.1);
+}
+.gt-grid .down_line {
+    background-color: rgba(255,255,255,0.7);
+    margin-left: 10px;
+    font-size: 110%;
+}
+.gt-grid .horizontal_line {
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.gt-grid .horizontal_line > span {
+    margin-right: 10px;
+    margin-left: 2px;
+}
+.gt-grid .down_line > span {
+    margin-left: 10px;
+}
+.gt-grid .buy {
+    margin-right: 15px;
+    float: right;
+}
+#footer {
+    padding-left: 12px;
+}
+#footer span {
+    margin-right: 2px;
+}
+
+
+/*.gt-grid > div h3 {
+    font-size: 1.05em;
+    padding: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+}*/
+/*.gt-grid > div h1 {
+    padding: 0.5em;
+    line-height: 0.9;
+    font-weight: 300;
+    text-align: right;
+}*/
+/*
+.gt-grid > div h1,
+.gt-grid > div h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    cursor: default;
+}
+*/
+
+/*.horizontal_line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 140px;
+    background-color: #000000;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+.down_line {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    background-color: #000000;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
+}*/

@@ -55,7 +55,9 @@ class Model_Registration extends Model
     public function addUser($login,$password,$contacts,$password2) {
         if($this->checkUserInDB($login) && $this->checkWithRegularExp($login) && ($this->checkPass($password,$password2))) {
             $password = md5(md5(trim($password)));
-            $this->prepareQuery("INSERT INTO user SET login='".$login."', password='".$password."',contacts=:contacts");
+            $this->prepareQuery("INSERT INTO user SET login=:login, password=:password,contacts=:contacts");
+            $this->query->bindParam(':login',$login);
+            $this->query->bindParam(':password',$password);
             $this->query->bindParam(':contacts',$contacts);
             $this->executeQuery_Simple();
             return true;
