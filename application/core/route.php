@@ -59,12 +59,9 @@ class Route
         if(method_exists($controller, $action))
         {
             // вызываем действие контроллера
-            if($action_name == "action_page") {
+
                 $controller->$action(array_slice($routes,4));
-            }
-            else {
-                $controller->$action();
-            }
+
         }
         else
         {
@@ -74,7 +71,7 @@ class Route
 
     }
 
-    function ErrorPage404()
+    static  function ErrorPage404()
     {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
