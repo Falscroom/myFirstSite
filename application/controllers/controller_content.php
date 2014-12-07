@@ -58,9 +58,9 @@ class Controller_content extends Controller
             if(!$this->count) $this->count = $this->model->GetCount();
 
             $data = array();
-            $data['item'] = $this->model->GetContent($routes[1]);
-            $data['current_page'] = $routes[1];
-            $data['category_number'] = $routes[2];
+            $data['item'] = $this->model->GetContent($routes[2]);
+            $data['current_page'] = $routes[2];
+            $data['category_number'] = $routes[1];
             $data['limit'] = $this->count[0];
 
             $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);

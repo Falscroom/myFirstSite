@@ -5,12 +5,12 @@ class Pagination {
     private $current_page;
     private $link;
 
-    function __construct($all,$lim,$current) {
+    function __construct($all,$lim,$current,$category) {
         $this->number_of_items = $all;
         $this->items_on_page = $lim;
         $this->current_page = $current;
 
-        $this->link = "http://localhost/myFirstSite/content/page/";
+        $this->link = "http://localhost/myFirstSite/content/category/page/".$category.'/';
     }
 
     function createPagination() {

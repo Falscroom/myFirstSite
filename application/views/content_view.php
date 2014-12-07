@@ -14,7 +14,7 @@
     <!-- Larger pagination -->
 
    <?
-   $pag = new Pagination($data['limit'],20,$data['current_page']);
+   $pag = new Pagination($data['limit'],20,$data['current_page'],$data['category_number']);
    $pag->createPagination();
    ?>
 
