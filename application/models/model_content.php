@@ -49,7 +49,17 @@ class Model_Content extends Model
         $right = $result['rght'];
 
         $this->prepareQuery('SELECT name,lft,rght,level FROM category WHERE lft > '.$left.' AND rght < '.$right.' ORDER BY lft'); // Warning!!!
-        return $this->executeQuery_All();
+        $result = $this->executeQuery_All();
+
+        $menu_items[1] = array();
+        $menu_items[2] = array();
+        $menu_items[3] = array();
+        $menu_items[4] = array();
+
+        foreach($result AS $arr) {
+            if($arr['level'] != 0) array_push($menu_items[$arr['level']],$arr);
+        }
+        return $menu_items;
 
     }
     function delete_node($level,$name) {

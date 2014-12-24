@@ -18,21 +18,6 @@ class Controller_content extends Controller
         array_push($files['header']['js'],'content_animation_description.js');
         $this->files = $files;
     }
-/*    function action_index()
-    {
-        // http://localhost/myFirstSite/category/view/1?page=3
-        if(!$this->files) $this->create_header();
-
-        if(!$this->count) $this->count = $this->model->GetCount();
-
-        $data = array();
-        $data['item'] = $this->model->GetContent(1);
-        $data['current_page'] = 1;
-        $data['limit'] = $this->count[0];
-
-        $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);
-
-    }*/
     function action_category($routes) {
         if($routes[0] == "page" && preg_match("/^[0-9]{1,6}$/",$routes[1]) && preg_match("/^[0-9]{1,6}$/",$routes[2])) {
             if(!$this->files) $this->create_header();
