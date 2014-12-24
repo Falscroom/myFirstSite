@@ -7,8 +7,6 @@
                 <?php foreach($data['menu_items'][1] as $arr): ?>
                     <div class="menu_items"><?=$arr['name']?></div>
                 <?php endforeach; ?>
-<!--                <div class="menu_items">Элемент</div>
-                <div class="menu_items">Элемент1</div>-->
             </div>
         </div>
         <ul>
