@@ -18,7 +18,7 @@
                         <?php foreach($data['menu_items'] as $arr): ?>
                             <? if($arr['level'] == 1) echo '
                                          <li>
-                                            <div class="ac_subitem">
+                                            <div class="ac_subitem"> ff
                                                 <span class="ac_close_base ac_close"></span>
                                                 <h2>'.$arr['name'].'</h2>
                                                 <ul>';
