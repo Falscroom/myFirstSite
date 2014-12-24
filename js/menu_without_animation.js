@@ -62,7 +62,7 @@ $(document).ready(function()
         menu.hideList(current).done(
             function() {
                 opened = null;
-                menu.itemsShow($('.menu_items'));
+               menu.itemsShow($('.menu_items'));
             }
         );
     }

@@ -15,10 +15,10 @@ class Controller_content extends Controller
         array_push($files['header']['css'],'menu_without_animation.css');
         array_push($files['header']['js'],'menu_without_animation.js');
         array_push($files['header']['css'],'content_style.css');
+        array_push($files['header']['js'],'content_animation_description.js');
         $this->files = $files;
     }
-
-    function action_index()
+/*    function action_index()
     {
         // http://localhost/myFirstSite/category/view/1?page=3
         if(!$this->files) $this->create_header();
@@ -32,38 +32,23 @@ class Controller_content extends Controller
 
         $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);
 
-    }
-/*    function action_page($routes) {
-        if(!$this->files) {
-            $this->create_header();
-        }
-        $number = $routes[0];
-
-        $limit = $this->model->GetCount();
-        $limit = $limit[0];
-
-        $data = array();
-        $data['item'] = $this->model->GetContent($number);
-        $data['pag'] = array();
-        array_push($data['pag'],$number);
-        array_push($data['pag'],$limit);
-
-        $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);
     }*/
-
     function action_category($routes) {
         if($routes[0] == "page" && preg_match("/^[0-9]{1,6}$/",$routes[1]) && preg_match("/^[0-9]{1,6}$/",$routes[2])) {
             if(!$this->files) $this->create_header();
 
-            if(!$this->count) $this->count = $this->model->GetCount();
+            if(!$this->count) $this->count = $this->model->GetCount($routes[1]);
 
             $data = array();
-            $data['item'] = $this->model->GetContent($routes[2]);
+            $data['item'] = $this->model->GetContent($routes[2],$routes[1]);
+            $data['menu_items'] = $this->model->get_menu_items();
+            $data['number_of_pages'] = $this->count[0];
+            $data['category'] = $routes[1];
             $data['current_page'] = $routes[2];
-            $data['category_number'] = $routes[1];
-            $data['limit'] = $this->count[0];
-
             $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);
+            //$this->model->delete_node(2,'mexican');
+            //$this->model->create_node(2,'orange1','oranges');
+
 
         }
         else {

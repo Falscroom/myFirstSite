@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--/////////////////////////////////////////////////////////////////////
 //////////////////// Константные файлы, для всех страниц    /////////////-->
-<link href="/myFirstSite/css/bootstrap.min.css" rel="stylesheet" media="screen"> <!--// ПОЧЕМУ НЕ РАБОТАЕТ С css/bootstrap.min.css при запросе http://localhost/myFirstSite/content/index-->
+<link href="/myFirstSite/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="/myFirstSite/js/jquery-2.1.1.js"></script>
 <script src="/myFirstSite/js/bootstrap.min.js"></script>
 <link href="/myFirstSite/css/all_style.css" rel="stylesheet" media="screen">

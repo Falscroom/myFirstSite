@@ -21,17 +21,35 @@ class Model
         $this->query = $this->link->prepare($query);
     }
     function executeQuery_Simple() { // выполняет запрос и возвращает требуемый результат (ничего, всё, строку)
+        try {
         $this->query->execute();
+        }
+        catch(PDOException $e) {
+            return NULL;
+        }
+        return true;
     }
     function executeQuery_Row() {
+        try {
         $this->executeQuery_Simple();
         $arr =  $this->query->fetch();
         return $arr;
+        }
+        catch(PDOException $e) {
+            $this->errorCode = $e->getCode();
+        }
+        return NULL;
     }
     function executeQuery_All() {
+        try{
         $this->executeQuery_Simple();
         $arr =  $this->query->fetchAll();
         return $arr;
+        }
+        catch(PDOException $e) {
+            $this->errorCode = $e->getCode();
+        }
+        return NULL;
     }
 
 }
