@@ -88,18 +88,19 @@
 }
 .ac_subitem ul{
     position: relative;
-    padding:30px 40px;
+    padding:20px 40px;
+}
+.ac_subitem > ul:last-child {
+    padding-bottom: 40px;
 }
 .ac_subitem ul li{
     color:#fff;
-    margin:10px 0;
+    margin: 5px 0;
 }
-.ac_subitem ul li:first-child{
+.ac_subitem > ul > li:first-child{
     font-size:14px;
     text-transform:none;
-    border-bottom:1px dotted #333;
-    padding-bottom:15px;
-    margin-bottom:15px;
+/*    border-bottom:1px dotted #333;*/
 }
 span.ac_close{
     float:right;
@@ -112,4 +113,8 @@ span.ac_close{
 }
 span.ac_close:hover{
     opacity:1.0;
+}
+.ac_under_subitem {
+    height: 0;
+    overflow: hidden;
 }

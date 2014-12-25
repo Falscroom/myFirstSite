@@ -32,7 +32,7 @@ class Controller_content extends Controller
             $data['current_page'] = $routes[2];
             $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);
             //$this->model->delete_node(2,'mexican');
-            //$this->model->create_node(2,'orange1','oranges');
+            //$this->model->create_node(2,'apple4','Apples');
 
 
         }
