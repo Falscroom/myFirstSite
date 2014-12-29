@@ -16,6 +16,7 @@ class Controller_content extends Controller
         array_push($files['header']['js'],'menu_without_animation.js');
         array_push($files['header']['css'],'content_style.css');
         array_push($files['header']['js'],'content_animation_description.js');
+        array_push($files['header']['js'],'animation_three_level.js');
         $this->files = $files;
     }
     function action_category($routes) {
@@ -31,8 +32,9 @@ class Controller_content extends Controller
             $data['category'] = $routes[1];
             $data['current_page'] = $routes[2];
             $this->view->generate('content_view.php', 'template_view.php',$this->files,$data);
+
             //$this->model->delete_node(2,'mexican');
-            //$this->model->create_node(2,'apple4','Apples');
+            //$this->model->create_node(3,'testoviyfrUkT','apple1');
 
 
         }

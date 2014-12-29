@@ -2,14 +2,14 @@
     <form class="form-horizontal" method="post">
 
 
-        <div class="form-group <?=$data['password_login']?>">
+        <div class="form-group <?=$data['errors']['password_login']?>">
             <label class="control-label" for="login">Логин</label>
             <input type="text" class="form-control" id="login" name="login" />
         </div>
 
 
 
-        <div class="form-group <?=$data['password_login']?>">
+        <div class="form-group <?=$data['errors']['password_login']?>">
             <label class="control-label" for="pass">Пароль </label>
             <input class="form-control" type="password" id="pass" name="password" />
         </div>

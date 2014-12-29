@@ -14,8 +14,25 @@ class Model
             $this->errorCode = $e->getCode();
         }
     }
-    public function get_data()
-    {
+    function get_menu_items() {
+        $this->prepareQuery('SELECT lft,rght FROM category WHERE level=0'); // Warning!!!
+        $result = $this->executeQuery_Row();
+
+        $left = $result['lft'];
+        $right = $result['rght'];
+
+        $this->prepareQuery('SELECT id,name,lft,rght,level FROM category WHERE lft > '.$left.' AND rght < '.$right.' ORDER BY lft'); // Warning!!!
+        $result = $this->executeQuery_All();
+
+        $menu_items[1] = array();
+        $menu_items[2] = array();
+        $menu_items[3] = array();
+        $menu_items[4] = array();
+
+        foreach($result AS $arr) {
+            if($arr['level'] != 0) array_push($menu_items[$arr['level']],$arr);
+        }
+        return $menu_items;
     }
     function prepareQuery($query) { // Подгатавливает запрос
         $this->query = $this->link->prepare($query);

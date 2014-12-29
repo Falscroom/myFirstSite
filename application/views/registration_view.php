@@ -24,19 +24,19 @@
 <div id="ac_register_form">
     <form class="form-horizontal" method="post">
 
-        <div class="form-group  <?= $data['login_error'] ?>">
+        <div class="form-group  <?= $data['errors']['login_error'] ?>">
             <label class="control-label" for="login">Логин</label>
             <input type="text" class="form-control" id="login" name="login" />
         </div>
 
-        <?= $data['login_text'] ?>
+        <?= $data['errors']['login_text'] ?>
 
-        <div class="form-group <?= $data['password_error'] ?>">
+        <div class="form-group <?= $data['errors']['password_error'] ?>">
             <label class="control-label" for="pass">Пароль </label>
             <input class="form-control" type="password" id="pass" name="password" />
         </div>
 
-        <?= $data['password_text'] ?>
+        <?= $data['errors']['password_text'] ?>
 
         <div class="form-group ">
             <label class="control-label" for="password2">Повторите пароль </label>

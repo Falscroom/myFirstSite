@@ -41,14 +41,14 @@ class Model_Content extends Model
         $this->query->bindParam(':new_name',$new_name,PDO::PARAM_STR);
         $this->executeQuery_Simple();
     }
-    function get_menu_items() {
+/*    function get_menu_items() {
         $this->prepareQuery('SELECT lft,rght FROM category WHERE level=0'); // Warning!!!
         $result = $this->executeQuery_Row();
 
         $left = $result['lft'];
         $right = $result['rght'];
 
-        $this->prepareQuery('SELECT name,lft,rght,level FROM category WHERE lft > '.$left.' AND rght < '.$right.' ORDER BY lft'); // Warning!!!
+        $this->prepareQuery('SELECT id,name,lft,rght,level FROM category WHERE lft > '.$left.' AND rght < '.$right.' ORDER BY lft'); // Warning!!!
         $result = $this->executeQuery_All();
 
         $menu_items[1] = array();
@@ -60,9 +60,8 @@ class Model_Content extends Model
             if($arr['level'] != 0) array_push($menu_items[$arr['level']],$arr);
         }
         return $menu_items;
-
-    }
-    function delete_node($level,$name) {
+    }*/
+    /*function delete_node($level,$name) {
         $this->prepareQuery('SELECT id,lft,rght FROM category WHERE level=:level AND name=:name'); // Warning!!!
         $this->query->bindParam(':level',$level,PDO::PARAM_INT);
         $this->query->bindParam(':name',$name,PDO::PARAM_STR);
@@ -84,7 +83,6 @@ class Model_Content extends Model
             case 0: // ЭТО HEAD
                 echo 'ТИ ЧТО ДЕЛАЕШЬ?!';
                 return false;
-                //FIXME stupid case
                 break;
             default: // УПС, ЭТО НЕ HEAD
                 if($this->executeQuery_All()) { // УПС, ДА У НЕГО ЕЩЁ И ПОТОМКИ ЕСТЬ
@@ -132,6 +130,6 @@ class Model_Content extends Model
                 }
                 break;
         }
-    }
+    }*/ //оказывается это не надо
 
 }

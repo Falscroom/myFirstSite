@@ -19,7 +19,11 @@ class Controller_Registration extends Controller
         array_push($files['header']['css'],'menu_without_animation.css');
         array_push($files['header']['css'],'register_style.css');
         array_push($files['header']['js'],'menu_without_animation.js');
+        array_push($files['header']['js'],'animation_three_level.js');
 
-        $this->view->generate('registration_view.php', 'template_view.php',$files,$this->model->errors);
+        $data['menu_items'] = $this->model->get_menu_items();
+        $data['errors'] = $this->model->errors;
+
+        $this->view->generate('registration_view.php', 'template_view.php',$files,$data);
     }
 }

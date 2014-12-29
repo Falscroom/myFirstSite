@@ -22,7 +22,11 @@ class Controller_Login extends Controller
         array_push($files['header']['css'],'menu_without_animation.css');
         array_push($files['header']['css'],'login_style.css');
         array_push($files['header']['js'],'menu_without_animation.js');
+        array_push($files['header']['js'],'animation_three_level.js');
 
-        $this->view->generate('login_view.php', 'template_view.php',$files,$this->model->errors);
+        $data['menu_items'] = $this->model->get_menu_items();
+        $data['errors'] = $this->model->errors;
+
+        $this->view->generate('login_view.php', 'template_view.php',$files,$data);
     }
 }

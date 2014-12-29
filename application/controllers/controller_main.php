@@ -14,8 +14,12 @@ class Controller_Main extends Controller
         array_push($files['header']['css'],'main_menu_style.css');
         array_push($files['header']['css'],'main_style.css');
         array_push($files['header']['js'],'main_menu.js');
+        array_push($files['header']['js'],'animation_three_level.js');
 
-        $this->view->generate('main_view.php', 'template_view.php',$files,array('authorization' => $this->model->mainApproveLogin()));
+        $data['authorization'] = $this->model->mainApproveLogin();
+        $data['menu_items'] = $this->model->get_menu_items();
+
+        $this->view->generate('main_view.php', 'template_view.php',$files,$data);
 
     }
 }

@@ -61,7 +61,7 @@
     overflow: hidden;
     min-width: 400px;
 }
-.ac_menu > ul > li a{
+.ac_menu > ul > li > a{
     margin-top:60px;
     opacity:0;
     display:block;
@@ -115,6 +115,12 @@ span.ac_close:hover{
     opacity:1.0;
 }
 .ac_under_subitem {
-    height: 0;
-    overflow: hidden;
+    display: none;
+}
+.ac_subitem_level_three > li {
+    cursor: pointer;
+}
+.ac_under_subitem ul {
+    margin-left: 50px;
+    padding: 0;
 }
