@@ -1,11 +1,9 @@
-
-
-
 <div class="container">
     <div id="gt-grid" class="gt-grid">
        <? foreach($data['item'] as $arr) : ?>
             <div>
                 <img src="/myFirstSite/images/<?=$arr['image']?>">
+                <input type="hidden" value="<?=$arr['id']?>">
                 <div class="horizontal_line"> <span>Описание </span> </div>
                 <div class="down_line"> <span> Цена : <?=$arr['price']?> </span> <span class="buy">| Купить </span> </div>
                     <div class="description">

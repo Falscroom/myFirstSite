@@ -8,17 +8,9 @@ class Controller_Main extends Controller
     function action_index()
     {
 
-        $files['header']['css'] = array();
-        $files['header']['js'] = array();
-
-        array_push($files['header']['css'],'main_menu_style.css');
-        array_push($files['header']['css'],'main_style.css');
-        array_push($files['header']['js'],'main_menu.js');
-        array_push($files['header']['js'],'animation_three_level.js');
-
+        $files = $this->get_files_array(array('main_menu_style.css','main_style.css','main_menu.js','animation_three_level.js'));
         $data['authorization'] = $this->model->mainApproveLogin();
         $data['menu_items'] = $this->model->get_menu_items();
-
         $this->view->generate('main_view.php', 'template_view.php',$files,$data);
 
     }

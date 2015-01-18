@@ -16,17 +16,9 @@ class Controller_Login extends Controller
 
         }
 
-        $files['header']['css'] = array();
-        $files['header']['js'] = array();
-
-        array_push($files['header']['css'],'menu_without_animation.css');
-        array_push($files['header']['css'],'login_style.css');
-        array_push($files['header']['js'],'menu_without_animation.js');
-        array_push($files['header']['js'],'animation_three_level.js');
-
+        $files = $this->get_files_array(array('menu_without_animation.css','login_style.css','menu_without_animation.js','animation_three_level.js'));
         $data['menu_items'] = $this->model->get_menu_items();
         $data['errors'] = $this->model->errors;
-
         $this->view->generate('login_view.php', 'template_view.php',$files,$data);
     }
 }
