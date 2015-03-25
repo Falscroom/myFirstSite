@@ -1,5 +1,5 @@
 <?php
-class Model_Content extends Model
+class Model_Content extends Authorization
 {
     function GetContent($page,$category) {
     try {
@@ -40,6 +40,15 @@ class Model_Content extends Model
         $this->query->bindParam(':right',$right,PDO::PARAM_INT);
         $this->query->bindParam(':new_name',$new_name,PDO::PARAM_STR);
         $this->executeQuery_Simple();
+    }
+    function get_count() {
+        $user_id = $_COOKIE['user_id'];
+        $this->prepareQuery("SELECT id FROM `order` WHERE user_id=".$user_id." LIMIT 1");
+        $res  = $this->executeQuery_Row();
+
+        $this->prepareQuery("SELECT COUNT(id) FROM `order_item` WHERE order_id=".$res[0]."");
+        $res  = $this->executeQuery_Row();
+        return $res[0];
     }
 /*    function get_menu_items() {
         $this->prepareQuery('SELECT lft,rght FROM category WHERE level=0'); // Warning!!!

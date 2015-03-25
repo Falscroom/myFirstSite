@@ -13,14 +13,14 @@ class Controller {
        $files['header']['js'] = array();
 
        for($i = 0; $i < count($array); $i++) {
-            if(preg_match("/.js$/",$array[$i])) {
+          if(preg_match("/.js$/",$array[$i])) {
                 array_push($files['header']['js'],$array[$i]);
-            }
-           else {
+          }
+          else {
                array_push($files['header']['css'],$array[$i]);
-           }
-        }
-        return $files;
+          }
+       }
+       return $files;
     }
 
     function action_index()
